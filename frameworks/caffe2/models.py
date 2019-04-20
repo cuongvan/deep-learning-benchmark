@@ -1,7 +1,7 @@
 import numpy as np
 from time import time
 from caffe2.proto import caffe2_pb2
-from caffe2.python.modeling.initializers import Initializer, pFP16Initializer
+from caffe2.python.modeling.initializers import Initializer, PseudoFP16Initializer
 from caffe2.python import core, model_helper, workspace, brew
 from caffe2.python.models.resnet import ResNetBuilder
 
@@ -68,7 +68,7 @@ class vgg16(caffe2_base):
     caffe2_base.__init__(self, 'vgg16', precision, image_shape, batch_size)
 
   def vgg16_model(self, model, data, precision):
-    initializer = Initializer if precision == 'fp32' else pFP16Initializer
+    initializer = Initializer if precision == 'fp32' else PseudoFP16Initializer
     with brew.arg_scope([brew.conv, brew.fc],
                         WeightInitializer=initializer,
                         BiasInitializer=initializer,
@@ -123,7 +123,7 @@ class resnet152(caffe2_base):
     caffe2_base.__init__(self, 'resnet152', precision, image_shape, batch_size)
 
   def resnet152_model(self, model, data, precision):
-    initializer = Initializer if precision == 'fp32' else pFP16Initializer
+    initializer = Initializer if precision == 'fp32' else PseudoFP16Initializer
     with brew.arg_scope([brew.conv, brew.fc],
                         WeightInitializer=initializer,
                         BiasInitializer=initializer,
