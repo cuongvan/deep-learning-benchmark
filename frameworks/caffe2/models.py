@@ -180,17 +180,17 @@ def create_resnet152(
     builder.add_bottleneck(256, 64, 256)
 
     # conv3_x
-    builder.add_bottleneck(256, 128, 512, down_sampling=True)
+    builder.add_bottleneck(256, 128, 512)
     for _ in range(1, 8):
         builder.add_bottleneck(512, 128, 512)
 
     # conv4_x
-    builder.add_bottleneck(512, 256, 1024, down_sampling=True)
+    builder.add_bottleneck(512, 256, 1024)
     for _ in range(1, 36):
         builder.add_bottleneck(1024, 256, 1024)
 
     # conv5_x
-    builder.add_bottleneck(1024, 512, 2048, down_sampling=True)
+    builder.add_bottleneck(1024, 512, 2048)
     builder.add_bottleneck(2048, 512, 2048)
     builder.add_bottleneck(2048, 512, 2048)
 
