@@ -12,9 +12,9 @@ frameworks = [
 ]
 
 models = [
-    'vgg16',
+    #'vgg16',
     'resnet152',
-    'densenet161'
+    #'densenet161'
 ]
 
 precisions = [
