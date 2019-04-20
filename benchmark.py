@@ -28,7 +28,7 @@ class Benchmark():
         framework_model = import_module('.'.join(['frameworks', framework, 'models']))
         return getattr(framework_model, model)
 
-    def benchmark_model(self, mode, framework, model, precision, image_shape=(224, 224), batch_size=1, num_iterations=20, num_warmups=20):
+    def benchmark_model(self, mode, framework, model, precision, image_shape=(224, 224), batch_size=4, num_iterations=20, num_warmups=20):
         framework_model = self.get_framework_model(framework, model)(precision, image_shape, batch_size)
         durations = framework_model.eval(num_iterations, num_warmups) if mode == 'eval' else framework_model.train(num_iterations, num_warmups)
         durations = np.array(durations)
