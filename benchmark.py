@@ -18,7 +18,7 @@ models = [
 ]
 
 precisions = [
-    'fp32',
+    #'fp32',
     'fp16'
 ]
 
