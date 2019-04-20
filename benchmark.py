@@ -18,8 +18,8 @@ models = [
 ]
 
 precisions = [
-    #'fp32',
-    'fp16'
+    'fp32',
+    #'fp16'
 ]
 
 class Benchmark():
