@@ -172,7 +172,7 @@ def create_resnet152(
 
     # Residual blocks...
     builder = ResNetBuilder(model, 'pool1', no_bias=no_bias,
-                            is_test=is_test, spatial_bn_mom=0.1)
+                            is_test=is_test, bn_momentum=0.1)
 
     # conv2_x (ref Table 1 in He et al. (2015))
     builder.add_bottleneck(64, 64, 256)
